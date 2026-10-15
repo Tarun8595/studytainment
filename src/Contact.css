@@ -44,6 +44,10 @@
   letter-spacing: 0.16em;
   font-family: "Chillax-Medium";
   font-weight: lighter;
+  text-transform: uppercase;
+  left: 6%;
+  color: black;
+  transform: translateY(-20px);
   opacity: 0;
   transition:
     opacity 0.8s ease 0.1s,
