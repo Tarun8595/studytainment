@@ -2,16 +2,25 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Loader } from "./Loader";
+import './Loader.css';
 import Navbar from "./Navbar";
+import './Navbar.css';
 import Home from "./Home";
 import './Home.css';
 import StudytainmentSection from "./StudytainmentHorizontal";
+import './StudytainmentHorizontal.css';
 import Classtype from "./Classtype";
+import Home from "./Classtype.css";
 import Ownpace from "./Ownpace";
+import Home from "./Ownpace.css";
 import Studyapp from "./Studyapp";
+import Home from "./Studyapp.css";
 import Focus from "./Focus";
+import Home from "./Focus.css";
 import Contact from "./Contact";
+import Home from "./Contact.css";
 import Footer from "./Footer";
+import Home from "./Footer.css";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
