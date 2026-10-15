@@ -39,21 +39,20 @@
 ======================================== */
 
 .contact-eyebrow {
-  position: relative;
+  position: absolute;
   z-index: 3;
-  margin: 0 0 48px;
-  color: var(--contact-bg);
-  font-size: clamp(17px, 1.6vw, 25px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   font-family: "Chillax-Medium";
+  left: 6%;
+  color: var(--contact-bg);
+
   opacity: 0;
-  transform: translateY(20px);
   transition:
     opacity 0.8s ease 0.1s,
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
-
 .contact-visible .contact-eyebrow {
   opacity: 1;
   transform: translateY(0);
@@ -169,7 +168,7 @@
   margin-top: 5px;
   color: var(--contact-bg);
   font-size: clamp(15px, 1.8vw, 28px);
-  font-weight: 500;
+   font-family: "Chillax-Variable";
   line-height: 1.85;
   letter-spacing: -0.035em;
   opacity: 0;
@@ -291,8 +290,8 @@
   margin-top: auto;
   padding-top: 55px;
   color: black;
-  font-size: 0.5rem;
-  font-family: "Chillax-Regular";
+  font-size: 0.7rem;
+  font-family: "Chillax-Variable";
   letter-spacing: 0.15em;
   opacity: 0;
   transition: opacity 0.8s ease 0.8s;
