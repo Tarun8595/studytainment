@@ -1,0 +1,34 @@
+
+@import url(https://assets.website-files.com/62fcbf467b1adcb80d4ce04d/css/showcase-websites.05d4f2b87.min.css);
+@font-face {
+  font-family: "Chillax-Semibold";
+  src: url("fonts/Chillax-Semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chillax-Bold";
+  src: url("fonts/Chillax-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chillax-Regular";
+  src: url("fonts/Chillax-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chillax-Variable";
+  src: url("fonts/Chillax-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chillax-Light";
+  src: url("fonts/Chillax-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chillax-Medium";
+  src: url("fonts/Chillax-Medium.woff2") format("woff2");
+}
+
+
+*,body{
+  margin: 0%;
+  padding: 0%;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}

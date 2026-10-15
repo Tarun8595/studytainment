@@ -1,0 +1,533 @@
+
+/* ========================================
+   MATTERS — EXPANDING FOOTER
+======================================== */
+
+.matters-footer {
+  --footer-black: #ff5f2d;
+  --footer-lime: white;
+  --footer-ink: black;
+
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 650px;
+
+  overflow: hidden;
+  padding: 0 20px;
+  background: var(--footer-black);
+  color: var(--footer-ink);
+  isolation: isolate;
+}
+
+.matters-footer *,
+.matters-footer *::before,
+.matters-footer *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   LIME PANEL
+======================================== */
+
+.matters-footer-panel {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  height: var(--footer-panel-height);
+  min-height: 0;
+
+  overflow: hidden;
+  flex-shrink: 0;
+
+  border-radius: 36px 36px 0 0;
+  background-color: var(--footer-lime);
+  color: var(--footer-ink);
+
+  transform: translateZ(0);
+  will-change: height;
+
+  transition: border-radius 0.5s ease;
+}
+
+.matters-footer-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 48% 48%,
+      rgba(255, 255, 180, 0.35),
+      transparent 68%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.13),
+      transparent 48%,
+      rgba(180, 200, 0, 0.06)
+    );
+}
+
+.matters-footer-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  opacity: 0.15;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+
+  mix-blend-mode: multiply;
+}
+
+/* ========================================
+   CONTACT DETAILS
+======================================== */
+
+.matters-footer-contact {
+  position: absolute;
+  font-family: "Chillax-Variable";
+  z-index: 4;
+  top: 36px;
+  left: 46px;
+
+  opacity: var(--footer-content-opacity);
+  transform: translate3d(
+    0,
+    var(--footer-content-y),
+    0
+  );
+  filter: blur(var(--footer-content-blur));
+
+  pointer-events: auto;
+  will-change: opacity, transform, filter;
+}
+
+.matters-footer-contact h3 {
+  margin: 0 0 16px;
+
+  color: var(--footer-ink);
+  font-size: clamp(20px, 1.8vw, 31px);
+  font-weight: 650;
+  font-family: "Chillax-Semibold";
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+}
+
+.matters-email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  max-width: 100%;
+  padding: 5px 5px 5px 18px;
+
+  border: 2px solid var(--footer-ink);
+  border-radius: 100px;
+  background: var(--footer-ink);
+  color: var(--footer-lime);
+
+  text-decoration: none;
+  font-size: clamp(16px, 1.8vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matters-email-pill > span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.matters-email-pill:hover {
+  background: transparent;
+  color: var(--footer-ink);
+  transform: translateY(-2px);
+}
+
+.matters-email-arrow {
+  display: grid;
+  place-items: center;
+
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  border: 2px solid var(--footer-lime);
+  background: var(--footer-lime);
+  color: var(--footer-ink);
+
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.matters-email-arrow svg {
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+}
+
+.matters-email-pill:hover .matters-email-arrow {
+  transform: rotate(45deg);
+  background: var(--footer-ink);
+  color: var(--footer-lime);
+}
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.matters-footer-socials {
+  position: absolute;
+  z-index: 4;
+  top: 40px;
+  right: 46px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+
+  opacity: var(--footer-content-opacity);
+  transform: translate3d(
+    0,
+    var(--footer-content-y),
+    0
+  );
+  filter: blur(var(--footer-content-blur));
+
+  will-change: opacity, transform, filter;
+}
+
+.matters-footer-socials a {
+  position: relative;
+
+  color: var(--footer-ink);
+  text-decoration: none;
+
+  font-size: clamp(16px, 1.45vw, 25px);
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-family: "Chillax-Variable";
+
+  transition: opacity 0.25s ease;
+}
+
+.matters-footer-socials a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+  background: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matters-footer-socials a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ========================================
+   HUGE BRAND TYPOGRAPHY
+======================================== */
+
+.matters-footer-word-wrap {
+  position: absolute;
+  z-index: 2;
+
+  left: 2.2%;
+  right: 1.8%;
+  bottom: 52px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  opacity: var(--footer-content-opacity);
+  transform: translate3d(
+    0,
+    var(--footer-content-y),
+    0
+  );
+  filter: blur(var(--footer-content-blur));
+
+  will-change: opacity, transform, filter;
+}
+
+.matters-footer-word {
+  display: block;
+  width: 100%;
+
+  color: var(--footer-ink);
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-family: inherit;
+  font-size: clamp(11.3rem, 8rem, 465px);
+  font-weight: 900;
+  line-height: 0.72;
+  letter-spacing: -0.095em;
+    font-family: "Chillax-Bold";
+
+  transform-origin: left bottom;
+  transition:
+    letter-spacing 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matters-footer-word:hover {
+  letter-spacing: -0.075em;
+  transform: translateY(-5px);
+}
+
+.matters-footer-period {
+  display: inline-block;
+  margin-left: 0.015em;
+  font-size: 0.78em;
+  vertical-align: 0.04em;
+  font-family: "Chillax-Variable";
+  transition: transform 0.5s ease;
+}
+
+.matters-footer-word:hover .matters-footer-period {
+  transform: rotate(30deg);
+}
+
+/* ========================================
+   COPYRIGHT
+======================================== */
+
+.matters-footer-copyright {
+  position: absolute;
+  z-index: 4;
+  left: 46px;
+  right: 46px;
+  bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 450;
+  letter-spacing: -0.025em;
+  font-family: "Chillax-Variable";
+
+  opacity: var(--footer-content-opacity);
+  transform: translate3d(
+    0,
+    var(--footer-content-y),
+    0
+  );
+  filter: blur(var(--footer-content-blur));
+
+  will-change: opacity, transform, filter;
+}
+
+.matters-back-to-top {
+  color: inherit;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
+}
+
+.matters-back-to-top:hover {
+  opacity: 0.55;
+}
+
+/* ========================================
+   RESPONSIVE: TABLETS
+======================================== */
+
+@media (max-width: 1000px) {
+  .matters-footer {
+    padding: 0 14px;
+    min-height: 560px;
+  }
+
+  .matters-footer-panel {
+    border-radius: 27px 27px 0 0;
+  }
+
+  .matters-footer-contact {
+    top: 30px;
+    left: 30px;
+  }
+
+  .matters-footer-socials {
+    top: 33px;
+    right: 30px;
+  }
+
+  .matters-footer-word-wrap {
+    left: 2.5%;
+    right: 2%;
+    bottom: 55px;
+  }
+
+  .matters-footer-word {
+    font-size: clamp(100px, 25vw, 260px);
+  }
+
+  .matters-footer-copyright {
+    left: 30px;
+    right: 30px;
+    bottom: 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE: MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .matters-footer {
+    height: 85svh;
+    min-height: 600px;
+    padding: 0 8px;
+  }
+
+  .matters-footer-panel {
+    height: var(--footer-panel-height);
+    border-radius: 21px 21px 0 0;
+  }
+
+  .matters-footer-contact {
+    top: 24px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .matters-footer-contact h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+  }
+
+  .matters-email-pill {
+    gap: 7px;
+    padding: 4px 4px 4px 12px;
+    font-size: clamp(15px, 4vw, 20px);
+  }
+
+  .matters-email-arrow {
+    width: 31px;
+    height: 31px;
+  }
+
+  .matters-footer-socials {
+    top: 145px;
+    left: 20px;
+    right: auto;
+    align-items: flex-start;
+  }
+
+  .matters-footer-socials a {
+    font-size: 16px;
+  }
+
+  .matters-footer-word-wrap {
+    left: 4%;
+    right: 4%;
+    bottom: 65px;
+  }
+
+  .matters-footer-word {
+    font-size: 24vw;
+    letter-spacing: -0.09em;
+  }
+
+  .matters-footer-copyright {
+    left: 20px;
+    right: 20px;
+    bottom: 18px;
+    font-size: 9px;
+  }
+
+  .matters-back-to-top {
+    font-size: 8px;
+  }
+}
+
+/* ========================================
+   VERY SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .matters-footer {
+    min-height: 560px;
+  }
+
+  .matters-footer-contact {
+    left: 15px;
+    right: 15px;
+  }
+
+  .matters-footer-contact h3 {
+    font-size: 19px;
+  }
+
+  .matters-email-pill {
+    font-size: 14px;
+  }
+
+  .matters-footer-socials {
+    left: 15px;
+  }
+
+  .matters-footer-word-wrap {
+    bottom: 67px;
+  }
+
+  .matters-footer-copyright {
+    left: 15px;
+    right: 15px;
+    font-size: 8px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .matters-footer-panel,
+  .matters-footer-contact,
+  .matters-footer-socials,
+  .matters-footer-word-wrap,
+  .matters-footer-copyright,
+  .matters-footer *,
+  .matters-footer *::before,
+  .matters-footer *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

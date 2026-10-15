@@ -1,0 +1,520 @@
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.contact-section {
+  --contact-bg: #101010;
+  --contact-blue: #299df5;
+  --contact-white: #fafafa;
+  --contact-gray: #a0a0a0;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ff5f2d;
+  color: var(--contact-white);
+  font-family: inherit;
+}
+
+.contact-section,
+.contact-section * {
+  box-sizing: border-box;
+}
+
+.contact-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 850px;
+  padding: 52px 24px 30px;
+  text-align: center;
+}
+
+/* ========================================
+   EYEBROW
+======================================== */
+
+.contact-eyebrow {
+  position: relative;
+  z-index: 3;
+  margin: 0 0 48px;
+  color: var(--contact-bg);
+  font-size: clamp(17px, 1.6vw, 25px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  font-family: "Chillax-Medium";
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease 0.1s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.contact-visible .contact-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   HEADLINE
+======================================== */
+
+.contact-heading {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  color: var(--contact-white);
+  font-size: clamp(9rem, 7.1vw, 112px);
+  font-weight: 400;
+  line-height: 1.025;
+  letter-spacing: -0.078em;
+  font-family: "Chillax-Bold";
+}
+
+.contact-heading-line {
+  display: block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(45px);
+  transition:
+    opacity 1s ease,
+    filter 1s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-heading-line:first-child {
+  transition-delay: 0.15s;
+}
+
+.contact-heading-line:nth-child(2) {
+  transition-delay: 0.28s;
+}
+
+.contact-visible .contact-heading-line {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.contact-heading-dot {
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--contact-white);
+  animation: contactDotIn 0.7s ease 1s both;
+}
+
+/* ========================================
+   MASCOT
+======================================== */
+
+.contact-mascot-wrap {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(410px, 38vw);
+  margin-top: -38px;
+  margin-bottom: 15px;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(55px) scale(0.84);
+  transition:
+    opacity 1s ease 0.35s,
+    filter 1s ease 0.35s,
+    transform 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+.contact-visible .contact-mascot-wrap {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+.contact-mascot-glow {
+  position: absolute;
+  z-index: -1;
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(22, 134, 255, 0.14);
+  filter: blur(55px);
+  animation: contactGlow 5s ease-in-out infinite;
+}
+
+.contact-mascot {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  animation: contactFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.contact-description {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  margin-top: 5px;
+  color: var(--contact-bg);
+  font-size: clamp(15px, 1.8vw, 28px);
+  font-weight: 500;
+  line-height: 1.85;
+  letter-spacing: -0.035em;
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(25px);
+  transition:
+    opacity 0.85s ease 0.5s,
+    filter 0.85s ease 0.5s,
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+
+.contact-visible .contact-description {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.contact-description p {
+  margin: 0;
+}
+
+.contact-description p + p {
+  margin-top: 5px;
+}
+
+/* ========================================
+   CALL TO ACTION
+======================================== */
+
+.contact-cta {
+  position: relative;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 302px;
+  min-height: 100px;
+  margin-top: 40px;
+  padding: 8px 9px 8px 35px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 100px;
+  background: #f8f8f8;
+  color: #161616;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(25px) scale(0.96);
+  transition:
+    opacity 0.8s ease 0.65s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s,
+    box-shadow 0.35s ease;
+}
+
+.contact-visible .contact-cta {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.contact-cta:hover {
+  box-shadow: 0 12px 45px rgba(41, 157, 245, 0.15);
+}
+
+.contact-cta-text {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+  transition: transform 0.35s ease;
+}
+
+.contact-cta:hover .contact-cta-text {
+  transform: translateX(3px);
+}
+
+.contact-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 84px;
+  width: 84px;
+  height: 84px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--contact-bg);
+  color: #fff;
+  transition:
+    background 0.35s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-cta-icon svg {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.45s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-arrow-active {
+  transform: rotate(-45deg) scale(1.03);
+  background: #ff5f2d;
+}
+
+.contact-arrow-active svg {
+  transform: translateX(2px);
+}
+
+/* ========================================
+   BOTTOM DECORATION
+======================================== */
+
+.contact-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: min(420px, 90%);
+  margin-top: auto;
+  padding-top: 55px;
+  color: black;
+  font-size: 0.5rem;
+  font-family: "Chillax-Regular";
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.8s;
+}
+
+.contact-visible .contact-bottom {
+  opacity: 1;
+}
+
+.contact-bottom-line {
+  flex: 1;
+  height: 1px;
+  background: var(--contact-bg);
+}
+
+/* ========================================
+   KEYFRAMES
+======================================== */
+
+@keyframes contactFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes contactGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes contactDotIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .contact-inner {
+    min-height: 760px;
+    padding-top: 48px;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 42px;
+  }
+
+  .contact-heading {
+    font-size: clamp(52px, 8vw, 76px);
+  }
+
+  .contact-mascot-wrap {
+    width: min(360px, 48vw);
+    margin-top: -15px;
+  }
+
+  .contact-description {
+    font-size: clamp(16px, 2.1vw, 21px);
+  }
+
+  .contact-cta {
+    min-height: 82px;
+    min-width: 260px;
+    margin-top: 32px;
+    padding-left: 28px;
+  }
+
+  .contact-cta-icon {
+    flex-basis: 66px;
+    width: 66px;
+    height: 66px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .contact-inner {
+    min-height: auto;
+    padding: 55px 18px 30px;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 35px;
+    font-size: 17px;
+  }
+
+  .contact-heading {
+    font-size: clamp(39px, 9.1vw, 55px);
+    line-height: 1.08;
+    letter-spacing: -0.075em;
+  }
+
+  .contact-heading-line {
+    white-space: normal;
+  }
+
+  .contact-mascot-wrap {
+    width: min(300px, 78vw);
+    margin-top: -3px;
+    margin-bottom: 8px;
+  }
+
+  .contact-description {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: -0.025em;
+  }
+
+  .contact-description p + p {
+    margin-top: 8px;
+  }
+
+  .contact-cta {
+    min-width: 245px;
+    min-height: 76px;
+    gap: 18px;
+    margin-top: 30px;
+    padding: 7px 8px 7px 27px;
+  }
+
+  .contact-cta-text {
+    font-size: 20px;
+  }
+
+  .contact-cta-icon {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-cta-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-bottom {
+    margin-top: 55px;
+    padding-top: 0;
+    gap: 10px;
+    font-size: 7px;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .contact-inner {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .contact-heading {
+    font-size: 37px;
+  }
+
+  .contact-mascot-wrap {
+    width: 76vw;
+  }
+
+  .contact-description {
+    font-size: 14px;
+  }
+
+  .contact-bottom {
+    font-size: 6px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .contact-eyebrow,
+  .contact-heading-line,
+  .contact-mascot-wrap,
+  .contact-description,
+  .contact-cta,
+  .contact-bottom {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}

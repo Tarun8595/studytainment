@@ -1,0 +1,905 @@
+
+/* =========================================
+   FOCUS SECTION
+========================================= */
+
+.focus-section {
+  width: 100%;
+  padding: 6%;
+  overflow: hidden;
+  font-family: inherit;
+  background-color: #ff5f2d;
+}
+
+.focus-section *,
+.focus-section *::before,
+.focus-section *::after {
+  box-sizing: border-box;
+}
+
+.focus-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.37fr) minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  min-height: 690px;
+}
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.focus-gallery {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 690px;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: 52px 44px 35px;
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-section.is-visible .focus-gallery {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-eyebrow {
+  margin: 0 0 28px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-family: "Chillax-Medium";
+  color: black;
+  text-transform: capitalize;
+}
+
+.focus-section.is-visible .focus-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-heading h2 {
+  margin: 0;
+  font-size: clamp(7rem, 8rem, 100px);
+  line-height: 0.83;
+  letter-spacing: -0.080em;
+  color: white;
+  opacity: 0;
+  font-family: "Chillax-Bold";
+  transform: translateY(30px);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s ease 0.12s,
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
+    filter 0.9s ease 0.12s;
+}
+
+.focus-section.is-visible .focus-heading h2 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* =========================================
+   IMAGE STACK
+========================================= */
+
+.focus-gallery-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.focus-image-stack {
+  position: absolute;
+  inset: 30% 0% 0%;
+  perspective: 1100px;
+  pointer-events: none;
+}
+
+.focus-image-card {
+  position: absolute;
+  top: var(--card-y);
+  left: var(--card-x);
+  z-index: calc(2 + var(--card-depth));
+  width: min(var(--card-width), 24%);
+  aspect-ratio: 0.86;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(30, 30, 30, 0.06);
+  border-radius: 12px;
+  background: #dededb;
+  box-shadow: 0 10px 35px rgba(20, 20, 20, 0.07);
+  cursor: pointer;
+  pointer-events: auto;
+  transform:
+    translate3d(
+      var(--pointer-x),
+      var(--pointer-y),
+      0
+    )
+    rotate(var(--card-rotate));
+  opacity: 0;
+  filter: blur(5px);
+  transition:
+    opacity 0.8s ease var(--card-delay),
+    filter 0.7s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s ease;
+  will-change: transform;
+}
+
+.focus-section.is-visible .focus-image-card {
+  opacity: 0.8;
+  filter: blur(0);
+}
+
+.focus-section.is-visible .focus-image-card:hover,
+.focus-section.is-visible .focus-image-card.image-active {
+  z-index: 15;
+  opacity: 1;
+  filter: blur(0);
+  box-shadow: 0 24px 55px rgba(20, 20, 20, 0.18);
+  transform:
+    translate3d(
+      calc(var(--pointer-x) * 1.3),
+      calc(var(--pointer-y) * 1.3 - 8px),
+      0
+    )
+    rotate(0deg)
+    scale(1.06);
+}
+
+.focus-section.is-visible .focus-image-card.image-muted {
+  opacity: 0.22;
+  filter: blur(2px);
+  transform:
+    translate3d(
+      var(--pointer-x),
+      var(--pointer-y),
+      0
+    )
+    rotate(var(--card-rotate))
+    scale(0.96);
+}
+
+.focus-image-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-image-card:hover img,
+.focus-image-card.image-active img {
+  transform: scale(1.12);
+}
+
+.focus-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 35%,
+    rgba(0, 0, 0, 0.63) 100%
+  );
+  opacity: 0.65;
+  transition: opacity 0.4s ease;
+}
+
+.focus-image-card:hover .focus-image-overlay,
+.focus-image-card.image-active .focus-image-overlay {
+  opacity: 1;
+}
+
+.focus-image-label {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 13px;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.focus-image-card:hover .focus-image-label,
+.focus-image-card.image-active .focus-image-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-image-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.focus-image-card:hover .focus-image-arrow,
+.focus-image-card.image-active .focus-image-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-gallery-footer {
+  position: absolute;
+  left: 44px;
+  right: 44px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #777772;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.6s ease 0.5s,
+    transform 0.6s ease 0.5s;
+}
+
+.focus-section.is-visible .focus-gallery-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-gallery-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--focus-pink);
+  box-shadow: 0 0 0 5px rgba(255, 71, 126, 0.09);
+  animation: focusDotPulse 2s ease-in-out infinite;
+}
+
+.focus-gallery-index {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  z-index: 4;
+  color: #a5a5a0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   RIGHT PANEL
+========================================= */
+
+.focus-content {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 690px;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: 48px 40px 28px;
+  color: #f5f5f2;
+  background-color: #242424;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.075) 0.8px,
+    transparent 0.8px
+  );
+  background-size: 5px 5px;
+  opacity: 0;
+  transform: translateY(35px) scale(0.99);
+  transition:
+    opacity 0.8s ease 0.12s,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+
+.focus-section.is-visible .focus-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.focus-content-noise {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 80% 10%,
+    rgba(255, 255, 255, 0.045),
+    transparent 55%
+  );
+}
+
+.focus-content-top,
+.focus-content-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.focus-content-top {
+  position: relative;
+  z-index: 2;
+  min-height: 18px;
+  color: #a6a6a2;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+
+.focus-content-count {
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.has-active-item .focus-content-count {
+  color: var(--focus-pink);
+}
+
+/* =========================================
+   LIST / STAGGERED ENTRANCE
+========================================= */
+
+.focus-list-area {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-height: 450px;
+  padding: 38px 0;
+}
+
+.focus-list {
+  width: 100%;
+  animation: focusListEnter 0.65s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.focus-list-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 74px;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: #ecece9;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: focusItemEnter 0.65s
+    cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--item-delay);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    padding 0.35s ease;
+}
+
+.focus-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: var(--focus-pink);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-list-item:hover::before,
+.focus-list-item:focus-visible::before {
+  width: 100%;
+}
+
+.focus-list-item:hover {
+  padding-left: 5px;
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.focus-item-number {
+  align-self: center;
+  color: #92928e;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.focus-item-title {
+  font-size: clamp(18px, 1.65vw, 27px);
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  font-weight: 400;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease;
+}
+
+.focus-item-icon {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: 50%;
+  color: #c9c9c5;
+  font-size: 13px;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.focus-list-item:hover .focus-item-title {
+  transform: translateX(3px);
+}
+
+.focus-list-item:hover .focus-item-number {
+  color: var(--focus-pink);
+}
+
+.focus-list-item:hover .focus-item-icon,
+.focus-list-item:focus-visible .focus-item-icon {
+  transform: rotate(45deg);
+  border-color: var(--focus-pink);
+  background: var(--focus-pink);
+  color: white;
+}
+
+/* =========================================
+   HOVER DESCRIPTION
+========================================= */
+
+.focus-detail {
+  width: 100%;
+  animation: focusDetailEnter 0.75s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center bottom;
+}
+
+.focus-detail-category {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--focus-pink);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+}
+
+.focus-detail h3 {
+  max-width: 100%;
+  margin: 0 0 22px;
+  color: #f6f6f3;
+  font-size: clamp(38px, 4.1vw, 65px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  overflow-wrap: anywhere;
+}
+
+.focus-detail p {
+  max-width: 430px;
+  margin: 0;
+  color: #c0c0bc;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.focus-detail-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.focus-detail-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #b3b3ae;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.focus-detail-indicator span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--focus-pink);
+  animation: focusDotPulse 1.8s infinite;
+}
+
+.focus-detail-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0 8px 12px;
+  border: 0;
+  background: transparent;
+  color: #f3f3ef;
+  cursor: pointer;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.focus-back-arrow {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  font-size: 13px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.focus-detail-close:hover .focus-back-arrow {
+  transform: rotate(45deg);
+  background: var(--focus-pink);
+  border-color: var(--focus-pink);
+}
+
+/* =========================================
+   BOTTOM LABEL
+========================================= */
+
+.focus-content-bottom {
+  position: relative;
+  z-index: 2;
+  min-height: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  color: #92928e;
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  font-weight: 600;
+}
+
+.focus-bottom-mark {
+  color: var(--focus-pink);
+  font-size: 17px;
+  animation: focusMarkSpin 12s linear infinite;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes focusListEnter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes focusItemEnter {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(28px) scale(0.97);
+  }
+
+  65% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  82% {
+    transform: translateY(1px) scale(0.998);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes focusDetailEnter {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(65px) scale(0.94);
+  }
+
+  65% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-7px) scale(1.01);
+  }
+
+  82% {
+    transform: translateY(2px) scale(0.998);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes focusDotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 126, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 71, 126, 0);
+  }
+}
+
+@keyframes focusMarkSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 1100px) {
+  .focus-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 16px;
+  }
+
+  .focus-gallery,
+  .focus-content {
+    min-height: 620px;
+  }
+
+  .focus-gallery {
+    padding: 38px 30px 30px;
+  }
+
+  .focus-heading h2 {
+    font-size: clamp(56px, 7vw, 78px);
+  }
+
+  .focus-content {
+    padding: 36px 28px 24px;
+  }
+
+  .focus-gallery-footer {
+    left: 30px;
+    right: 30px;
+  }
+
+  .focus-gallery-index {
+    top: 26px;
+    right: 26px;
+  }
+
+  .focus-list-area {
+    min-height: 400px;
+  }
+
+  .focus-list-item {
+    grid-template-columns: 22px minmax(0, 1fr) 22px;
+    gap: 8px;
+  }
+
+  .focus-item-title {
+    font-size: clamp(17px, 2.2vw, 23px);
+  }
+
+  .focus-detail h3 {
+    font-size: clamp(36px, 4.5vw, 50px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .focus-section {
+    padding: 8px;
+  }
+
+  .focus-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .focus-gallery {
+    min-height: 500px;
+    padding: 34px 25px 25px;
+    border-radius: 23px;
+  }
+
+  .focus-heading h2 {
+    font-size: clamp(59px, 13vw, 84px);
+  }
+
+  .focus-eyebrow {
+    font-size: 9px;
+    margin-bottom: 16px;
+  }
+
+  .focus-image-stack {
+    inset: 19% 0 11%;
+  }
+
+  .focus-image-card {
+    width: min(var(--card-width), 30%);
+    border-radius: 9px;
+  }
+
+  .focus-gallery-footer {
+    left: 25px;
+    right: 25px;
+    bottom: 24px;
+    font-size: 8px;
+  }
+
+  .focus-gallery-index {
+    top: 24px;
+    right: 22px;
+  }
+
+  .focus-content {
+    min-height: 600px;
+    padding: 32px 25px 23px;
+    border-radius: 23px;
+  }
+
+  .focus-list-area {
+    min-height: 450px;
+    padding: 28px 0;
+  }
+
+  .focus-list-item {
+    min-height: 75px;
+    grid-template-columns: 25px minmax(0, 1fr) 24px;
+    gap: 10px;
+  }
+
+  .focus-item-title {
+    font-size: clamp(21px, 5.5vw, 29px);
+  }
+
+  .focus-detail h3 {
+    font-size: clamp(42px, 10vw, 60px);
+    margin-bottom: 20px;
+  }
+
+  .focus-detail p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .focus-detail-bottom {
+    margin-top: 28px;
+  }
+
+  .focus-content-bottom {
+    font-size: 7px;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .focus-gallery {
+    min-height: 450px;
+    padding: 30px 20px 20px;
+  }
+
+  .focus-heading h2 {
+    font-size: 56px;
+  }
+
+  .focus-content {
+    padding: 27px 19px 20px;
+  }
+
+  .focus-content-top {
+    font-size: 8px;
+  }
+
+  .focus-item-title {
+    font-size: 19px;
+  }
+
+  .focus-list-item {
+    grid-template-columns: 20px minmax(0, 1fr) 22px;
+    gap: 7px;
+  }
+
+  .focus-detail h3 {
+    font-size: 39px;
+  }
+
+  .focus-detail p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-section *,
+  .focus-section *::before,
+  .focus-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .focus-gallery,
+  .focus-content,
+  .focus-heading h2,
+  .focus-eyebrow {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .focus-image-card {
+    opacity: 0.8;
+    filter: none;
+  }
+}
