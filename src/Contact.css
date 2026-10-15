@@ -46,7 +46,7 @@
   font-family: "Chillax-Medium";
   left: 6%;
   color: var(--contact-bg);
-
+text-transform: uppercase;
   opacity: 0;
   transition:
     opacity 0.8s ease 0.1s,
@@ -166,12 +166,13 @@
   width: 100%;
   margin-top: 5px;
   color: var(--contact-bg);
-  font-size: clamp(15px, 1.8vw, 28px);
-   font-family: "Chillax-Variable";
-  line-height: 1.85;
+  font-size: clamp(2rem, 2rem, 28px);
+  font-weight: 500;
+  line-height: 1.5;
   letter-spacing: -0.035em;
   opacity: 0;
   filter: blur(7px);
+  font-family: "Chillax-Medium";
   transform: translateY(25px);
   transition:
     opacity 0.85s ease 0.5s,
