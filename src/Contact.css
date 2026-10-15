@@ -44,6 +44,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   font-family: "Chillax-Medium";
+   font-weight: "normal";
   left: 6%;
   color: var(--contact-bg);
 text-transform: uppercase;
@@ -292,7 +293,7 @@ text-transform: uppercase;
   color: black;
   font-size: 1rem;
   font-family: "Chillax-Variable";
-  letter-spacing: 0.15em;
+  letter-spacing: -0.035em;
   opacity: 0;
   transition: opacity 0.8s ease 0.8s;
 }
