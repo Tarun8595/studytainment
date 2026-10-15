@@ -43,10 +43,6 @@
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   font-family: "Chillax-Medium";
-   font-weight: "normal";
-  left: 6%;
-  color: var(--contact-bg);
-text-transform: uppercase;
   opacity: 0;
   transition:
     opacity 0.8s ease 0.1s,
