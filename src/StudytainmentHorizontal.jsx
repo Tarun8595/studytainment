@@ -191,7 +191,7 @@ export default function StudytainmentSection() {
             <div className="study-panel__watermark" aria-hidden="true">Growth</div>
             <div className="study-panel__content study-panel__content--approach">
               <motion.div className="study-panel__intro" style={{ opacity: approachOpacity }}>
-                <p className="study-panel__eyebrow">A BETTER WAY FORWARD</p>
+                <p className="study-panel__eyebrow">✺ A BETTER WAY FORWARD</p>
                 <h2>Studytainment<br />Approach</h2>
                 <p className="study-panel__sub">Unlock your potential without the pressure.</p>
               </motion.div>
