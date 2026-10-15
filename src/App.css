@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: "Chillax-Bold";
-  src: url("fonts/Chillax-Bold.woff2") format("woff2");
+  src: url("../public/fonts/Chillax-Bold.woff") format("woff2");
 }
 @font-face {
   font-family: "Chillax-Regular";
