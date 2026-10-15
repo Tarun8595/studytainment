@@ -21,15 +21,14 @@
   position: absolute;
   top: 7%;
   z-index: 2;
-  font-family: "Chillax-Bold";
   font-size: 7rem;
   font-variant-numeric: tabular-nums;
   color: black;
 }
-
 .counter-number {
   display: inline-block;
   will-change: transform;
+  font-family: "Chillax-Bold", sans-serif;
 }
 
 @media (max-width: 768px) {
