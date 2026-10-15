@@ -18,7 +18,7 @@
 */
 @font-face {
   font-family: 'Chillax-Extralight';
-  src: url('../fonts/Chillax-Extralight.woff2') format('woff2'),
+  src: url('../public/fonts/Chillax-Extralight.woff') format('woff2'),
        url('../fonts/Chillax-Extralight.woff') format('woff'),
        url('../fonts/Chillax-Extralight.ttf') format('truetype');
   font-weight: 200;
