@@ -43,6 +43,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   font-family: "Chillax-Medium";
+  font-weight: lighter;
   opacity: 0;
   transition:
     opacity 0.8s ease 0.1s,
