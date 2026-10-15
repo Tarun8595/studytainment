@@ -52,7 +52,7 @@
   margin: 0;
   font-size: clamp(11rem, 5rem, 5rem);
   line-height: 0.8;
-  letter-spacing: -0.5rem;
+  letter-spacing: -0.065em;
   white-space: nowrap;
   color: #171719;
 
