@@ -28,7 +28,7 @@
 .counter-number {
   display: inline-block;
   will-change: transform;
-  font-family: "Chillax-Bold", sans-serif;
+  font-family: "Chillax-Bold";
 }
 
 @media (max-width: 768px) {
