@@ -235,7 +235,7 @@ export default function StudytainmentSection() {
             />
             <div className="study-panel__content study-panel__content--outcomes">
               <div className="study-panel__intro">
-                <p className="study-panel__eyebrow">THE BIGGER PICTURE</p>
+                <p className="study-panel__eyebrow">✺ THE BIGGER PICTURE</p>
                 <h2>Today’s Challenges<br />Need a New Approach<br />to Learning.</h2>
                 <p className="study-panel__sub study-panel__sub--outcomes">
                   Studytainment is being built to bring these experiences closer together,
