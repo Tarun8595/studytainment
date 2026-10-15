@@ -10,17 +10,18 @@ import './Home.css';
 import StudytainmentSection from "./StudytainmentHorizontal";
 import './StudytainmentHorizontal.css';
 import Classtype from "./Classtype";
-import "./Classtype.css";
+import './Classtype.css';
 import Ownpace from "./Ownpace";
-import "./Ownpace.css";
+import './Ownpace.css';
 import Studyapp from "./Studyapp";
-import "./Studyapp.css";
+import './Studyapp.css';
 import Focus from "./Focus";
-import "./Focus.css";
+import './Focus.css';
 import Contact from "./Contact";
-import "./Contact.css";
+import './Contact.css';
 import Footer from "./Footer";
-import "./Footer.css";
+import './Footer.css';
+import './App.css'
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
