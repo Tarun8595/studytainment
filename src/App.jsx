@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Loader } from "./Loader";
 import Navbar from "./Navbar";
 import Home from "./Home";
+import './Home.css';
 import StudytainmentSection from "./StudytainmentHorizontal";
 import Classtype from "./Classtype";
 import Ownpace from "./Ownpace";
@@ -17,11 +18,11 @@ export default function App() {
 
   return (
     <>
-      {/* {!isLoaded && (
+      {!isLoaded && (
         <Loader onComplete={() => setIsLoaded(true)} />
-      )} */}
+      )}
 
-      {/* {isLoaded && ( */}
+      {isLoaded && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -56,6 +57,9 @@ export default function App() {
             <Footer />
           </section>
         </motion.div>
+
+      )}
     </>
+    
   );
 }
