@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import "./Loader.css";
-// import "./chillax.css";
+import "./chillax.css";
 
 const title = "Studytainment";
 
