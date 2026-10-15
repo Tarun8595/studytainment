@@ -60,6 +60,7 @@ export const Loader = ({ onComplete }) => {
     className="counter-number"
     animate={{ x: progress * 11 }}
     transition={{ duration: 1, ease: "easeOut" }}
+    style={{fontFamily: "Chillax-Bold"}}
   >
     {String(progress).padStart(2, "0")}
   </motion.span>
