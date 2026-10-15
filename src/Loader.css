@@ -24,6 +24,7 @@
   font-size: 7rem;
   font-variant-numeric: tabular-nums;
   color: black;
+  font-family: "Chillax-Bold";
 }
 .counter-number {
   display: inline-block;
