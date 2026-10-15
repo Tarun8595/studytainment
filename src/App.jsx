@@ -22,6 +22,7 @@ import './Contact.css';
 import Footer from "./Footer";
 import './Footer.css';
 import './App.css'
+import "./chillax.css";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
