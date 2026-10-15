@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import "./Home.css";
 
+
 const headlineLines = [
     "Feed your mind.",
     "Doesn't force it.",

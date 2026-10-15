@@ -226,7 +226,7 @@ export default function StudytainmentSection() {
             </div>
           </article>
 
-          <div className="curve_last"></div>
+          {/* <div className="curve_last"></div> */}
           <article className="study-panel study-panel--outcomes">
             <div className="study-panel__watermark" aria-hidden="true">Success</div>
             <motion.div

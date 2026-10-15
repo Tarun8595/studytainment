@@ -186,7 +186,7 @@ export default function Ownpace() {
        <>
         <motion.section className="ownpace-section" ref={sectionRef}>
             <div className="ownpace-sticky">
-       <div className="own_curve"></div>        
+       {/* <div className="own_curve"></div>         */}
                 <motion.h1
                     className="ownpace-heading"
                     style={{
@@ -209,7 +209,7 @@ export default function Ownpace() {
                         />
                     ))}
                 </div>
-                <div className="own_curve2"></div>
+                {/* <div className="own_curve2"></div> */}
             </div>
         </motion.section>
        </>
